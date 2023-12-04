@@ -37,5 +37,116 @@
         <button type="button" class="done__btn-delete" data-bs-toggle="modal" data-bs-target="#exampleModal-3">Delete all</button>
       </section>
     </div>
+
+    <!-- Modal -->
+
+    <!-- 1 -->
+    <div class="modal fade" id="exampleModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Add Todo</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <form id="formAdd">
+            <div class="modal-body">
+              <div class="mb-3">
+                <input class="form-control" type="text" placeholder="Title" id="validationDefault01" name="title" required />
+              </div>
+              <div class="mb-3">
+                <textarea class="form-control" placeholder="Description" rows="2" id="validationTextarea" name="description" required></textarea>
+              </div>
+              <div class="mb-3">
+                <!-- <div class="col-md-3"> -->
+                <select class="form-select form-select-sm" id="validationDefault02" name="user" required>
+                  <option selected disabled value="">Select user</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#563d7c" name="bgColor" title="Choose your color" />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="modal fade" id="exampleModal-2" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Todo</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <form id="formEdit">
+            <div class="modal-body">
+              <div class="mb-3">
+                <input class="form-control" type="text" placeholder="Title" id="validationDefault04" name="titleEdit" required />
+              </div>
+              <div class="mb-3">
+                <textarea class="form-control" placeholder="Description" rows="2" id="validationTextarea" name="descriptionEdit" required></textarea>
+              </div>
+              <div class="mb-3">
+                <!-- <div class="col-md-3"> -->
+                <select class="form-select form-select-sm" aria-label="Small select example" id="validationDefault06" name="userEdit" required>
+                  <option selected disabled value="">Select user</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <input type="color" class="form-control form-control-color" id="exampleColorInput" value="" name="bgColorEdit" title="Choose your color" />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+
+    <div class="modal fade" id="exampleModal-3" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Удалить все</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Вы уверены, что хотите очистить поле выполненных дел?</p>
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Нет</button>
+            <button type="button" class="btn btn-primary">Да</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+
+    <div class="modal fade" id="exampleModal-4" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Ошибка</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Выполните остальные дела прежде чем добавлять следующие</p>
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Окей</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
