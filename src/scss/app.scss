@@ -1,7 +1,4 @@
 @import '~bootstrap/scss/bootstrap';
-// @import 'variables.scss';
-// @import 'mixin.scss';
-// @import 'trello.scss';
 
 * {
   margin: 0;
@@ -63,6 +60,17 @@ section {
     }
   }
 }
+
+.todo__wrapper {
+  background-color: rgb(114, 229, 137);
+}
+.in-progress__wrapper {
+  background-color: rgb(167, 167, 167);
+}
+.done__wrapper {
+  background-color: rgb(115, 180, 226);
+}
+
 .todo__ul,
 .in-progress__ul,
 .done__ul {
@@ -103,7 +111,12 @@ section {
   display: block;
   cursor: pointer;
 }
-
+.todo__btn-add {
+  background-color: rgb(114, 229, 137);
+}
+.done__btn-delete {
+  background-color: rgb(115, 180, 226);
+}
 .btn__group {
   display: flex;
   justify-content: space-between;
