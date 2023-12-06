@@ -1,3 +1,7 @@
+import { getCount, countProgress } from './counterTodo.js';
+import { date } from './clock.js';
+import { setData, getData } from './localStorage.js';
+import { render } from './render.js';
 import {
   btnAddTodoElement,
   btnDeleteAllDoneElement,
