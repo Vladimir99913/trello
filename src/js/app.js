@@ -1,5 +1,7 @@
 import * as bootstrap from 'bootstrap';
-
+import { getTime } from './clock.js';
+import { getUser } from './user.js';
+import { getCount } from './countetTodo.js';
 import {
   ulTodoElement,
   ulProgressElement,
@@ -49,6 +51,10 @@ function buildTemplateTodo(todo) {
 </li>
   `;
 }
+const timer = setInterval(getTime, 1000);
+
+getUser(selectUserElement);
+getUser(selectEditUserElement);
 
 formElementAdd.addEventListener('submit', handleClickBtnSave);
 
@@ -59,6 +65,10 @@ sectionDoneElement.addEventListener('change', handleChangeSelectStatus);
 ulTodoElement.addEventListener('click', handleClickBtnDelete);
 ulProgressElement.addEventListener('click', handleClickBtnDelete);
 ulDoneElement.addEventListener('click', handleClickBtnDelete);
+
+sectionTodoElement.addEventListener('change', getCount);
+sectionProgressElement.addEventListener('change', getCount);
+sectionDoneElement.addEventListener('change', getCount);
 
 btnDeleteAllElement.addEventListener('click', handleClickBtnDeleteAllDone);
 
