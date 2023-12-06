@@ -52,9 +52,7 @@ section {
     justify-content: space-between;
     align-items: center;
     padding: 5%;
-    .todo__wrapper p,
-    .in-progress__wrapper p,
-    .done__wrapper p {
+    p {
       font-size: 2rem;
       color: #fff;
     }
@@ -62,13 +60,13 @@ section {
 }
 
 .todo__wrapper {
-  background-color: rgb(114, 229, 137);
+  background-color: rgb(115, 180, 226);
 }
 .in-progress__wrapper {
-  background-color: rgb(167, 167, 167);
+  background-color: rgb(241, 233, 138);
 }
 .done__wrapper {
-  background-color: rgb(115, 180, 226);
+  background-color: rgb(114, 229, 137);
 }
 
 .todo__ul,
@@ -101,6 +99,12 @@ section {
     }
   }
 }
+.in-progress__ul__li {
+  background-color: rgb(241, 233, 138);
+}
+.done__ul__li {
+  background-color: rgb(114, 229, 137);
+}
 .todo__btn-add,
 .done__btn-delete {
   height: 50px;
@@ -112,10 +116,10 @@ section {
   cursor: pointer;
 }
 .todo__btn-add {
-  background-color: rgb(114, 229, 137);
+  background-color: rgb(115, 180, 226);
 }
 .done__btn-delete {
-  background-color: rgb(115, 180, 226);
+  background-color: rgb(114, 229, 137);
 }
 .btn__group {
   display: flex;
@@ -125,17 +129,17 @@ section {
     height: 30px;
     width: 80px;
     border-radius: 5px;
-    .btn__group__btn-edit,
-    .btn__group__btn-delete {
-      height: 30px;
-      width: 70px;
-      background-color: rgb(236, 142, 142);
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
   }
+}
+.btn__group__btn-edit,
+.btn__group__btn-delete {
+  height: 30px;
+  width: 70px;
+  background-color: rgb(236, 142, 142);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 .wrapper {
   display: flex;

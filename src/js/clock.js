@@ -18,5 +18,4 @@ function getTime() {
   }
   timeElement.innerHTML = `${('0' + hour).slice(-2)} : ${('0' + min).slice(-2)} : ${('0' + sec).slice(-2)} `;
 }
-
 export { date, getTime };

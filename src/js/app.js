@@ -1,4 +1,5 @@
-import * as bootstrap from 'bootstrap';
+// import * as bootstrap from 'bootstrap';
+
 import { getTime } from './clock.js';
 import { getUser } from './users.js';
 import { getCount } from './counterTodo.js';
