@@ -1,0 +1,134 @@
+.container__trello {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 3%;
+  gap: 5%;
+  background-color: rgb(230, 255, 255);
+  header {
+    @include flex-between;
+    height: 150px;
+    width: 100%;
+    background-color: rgb(225, 198, 251);
+    border-radius: 20px;
+    padding: 5%;
+
+    time {
+      @include flex;
+      height: 80px;
+      width: 250px;
+      font-size: 2.5rem;
+      background-color: #fff;
+      border-radius: 10px;
+    }
+  }
+}
+section {
+  height: 500px;
+  width: 25%;
+  margin: 0 20px;
+  background-color: rgb(243, 236, 236);
+  border-radius: 20px;
+  .todo__wrapper,
+  .in-progress__wrapper,
+  .done__wrapper {
+    @include flex-between;
+    height: 60px;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    padding: 5%;
+    p {
+      font-size: 2rem;
+      color: #fff;
+    }
+  }
+}
+
+.todo__wrapper {
+  background-color: $bgColorTodo;
+}
+.in-progress__wrapper {
+  background-color: $bgColorInProgress;
+}
+.done__wrapper {
+  background-color: $bgColorDone;
+}
+
+.todo__ul,
+.in-progress__ul,
+.done__ul {
+  height: 360px;
+  margin: 10px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  .todo__ul__li,
+  .in-progress__ul__li,
+  .done__ul__li {
+    height: 170px;
+    width: 90%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px;
+    margin: 5px;
+    /* margin: 10px auto; */
+    .todo__ul__li p,
+    .in-progress__ul__li p,
+    .done__ul__li p {
+      width: 100%;
+      overflow: auto;
+      margin: 5px;
+    }
+  }
+}
+.in-progress__ul__li {
+  background-color: $bgColorInProgress;
+}
+.done__ul__li {
+  background-color: $bgColorDone;
+}
+.todo__btn-add,
+.done__btn-delete {
+  @include btnProperties;
+  height: 50px;
+  width: 90%;
+  border-radius: 10px;
+  margin: auto;
+  display: block;
+}
+.todo__btn-add {
+  background-color: $bgColorTodo;
+}
+.done__btn-delete {
+  background-color: $bgColorDone;
+}
+.btn__group {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  select {
+    height: 30px;
+    width: 80px;
+    border-radius: 5px;
+  }
+}
+.btn__group__btn-edit,
+.btn__group__btn-delete {
+  @include btnProperties;
+  height: 30px;
+  width: 70px;
+  background-color: rgb(236, 142, 142);
+  color: #fff;
+  border-radius: 5px;
+}
+.wrapper {
+  @include flex-between;
+}
+textarea {
+  resize: none;
+}

@@ -1,7 +1,9 @@
 import { counterElements } from './dom.js';
-import { todos } from './handlers.js';
+// import { todos } from './handlers.js';
+import { todos } from './localStorage.js';
 
 const [todo, progress, done] = counterElements;
+
 let countTodo = 0;
 let countProgress = 0;
 let countDone = 0;

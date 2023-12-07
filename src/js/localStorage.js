@@ -1,10 +1,11 @@
 import { render } from './render.js';
-import { todos } from './handlers.js';
+// import { todos } from './handlers.js';
 import { getCount } from './counterTodo.js';
+
+let todos = getData();
 
 function setData() {
   localStorage.setItem('todos', JSON.stringify(todos));
-  console.log(todos);
 }
 function getData() {
   const todos = localStorage.getItem('todos');
@@ -16,4 +17,4 @@ if (localStorage.getItem('todos')) {
   getCount();
 }
 
-export { setData, getData };
+export { setData, todos };

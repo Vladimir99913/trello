@@ -1,3 +1,5 @@
+import Modal from 'bootstrap/js/dist/modal';
+
 function $(selector) {
   return document.querySelector(selector);
 }
@@ -38,7 +40,7 @@ const formElementAdd = $('#formAdd');
 const formElementEdit = $('#formEdit');
 
 const modalWarningElement = $('#exampleModal-4');
-// const modalInstance = new Modal(modalWarningElement);
+const modalInstance = new Modal(modalWarningElement);
 
 export {
   btnAddTodoElement,
@@ -67,5 +69,5 @@ export {
   timeElement,
   formElementAdd,
   formElementEdit,
-  modalWarningElement,
+  modalInstance,
 };

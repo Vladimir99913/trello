@@ -1,10 +1,10 @@
+import { todos } from './localStorage.js';
 import { getCount, countProgress } from './counterTodo.js';
 import { date } from './clock.js';
-import { setData, getData } from './localStorage.js';
+import { setData } from './localStorage.js';
 import { render } from './render.js';
 import {
   btnAddTodoElement,
-  btnDeleteAllDoneElement,
   btnEditTodoElement,
   btnDeleteTodoElement,
   selectStatusElement,
@@ -28,11 +28,11 @@ import {
   timeElement,
   formElementAdd,
   formElementEdit,
-  modalWarningElement,
+  modalInstance,
 } from './dom.js';
 let todoEditId = 0;
 
-let todos = getData();
+// todos = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [];
 
 function handleClickBtnSave(event) {
   //   event.preventDefault();
@@ -150,15 +150,16 @@ formElementEdit.addEventListener('submit', (event) => {
 });
 
 function handleClickBtnDeleteAllDone() {
+  let firstIndex = todos.findIndex((todo) => todo.status == 'Done');
   console.log(todos);
-  todos = todos.filter((todo) => todo.status !== 'Done');
-  console.log(todos);
+  while (firstIndex != -1) {
+    todos.splice(firstIndex, 1);
+    firstIndex = todos.findIndex((todo) => todo.status == 'Done');
+    console.log(firstIndex);
+  }
   getCount();
-  console.log('1');
   render();
-  console.log('2');
   setData();
-  console.log('3');
 }
 
-export { todos, handleClickBtnSave, handleChangeSelectStatus, handleClickBtnDelete, handleClickBtnDeleteAllDone };
+export { handleClickBtnSave, handleChangeSelectStatus, handleClickBtnDelete, handleClickBtnDeleteAllDone };

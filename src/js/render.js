@@ -1,5 +1,6 @@
-import { todos } from './handlers.js';
-import { buildTemplateTodo } from './app.js';
+// import { todos } from './handlers.js';
+import { todos } from './localStorage.js';
+import { buildTemplateTodo } from './main.js';
 import { ulTodoElement, ulProgressElement, ulDoneElement } from './dom.js';
 function render() {
   let htmlTodo = '';
