@@ -48,12 +48,21 @@ section {
 
 .todo__wrapper {
   background-color: $bgColorTodo;
+  h2 {
+    font-size: 2rem;
+  }
 }
 .in-progress__wrapper {
   background-color: $bgColorInProgress;
+  h2 {
+    font-size: 2rem;
+  }
 }
 .done__wrapper {
   background-color: $bgColorDone;
+  h2 {
+    font-size: 2rem;
+  }
 }
 
 .todo__ul,
@@ -64,7 +73,9 @@ section {
   overflow: auto;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  align-items: center;
+  padding: 0;
+  // align-items: center;
   .todo__ul__li,
   .in-progress__ul__li,
   .done__ul__li {
@@ -131,4 +142,336 @@ section {
 }
 textarea {
   resize: none;
+}
+
+@media screen and (max-width: 1420px) {
+  .btn__group__btn-edit,
+  .btn__group__btn-delete {
+    @include btnProperties;
+    height: 30px;
+    width: 60px;
+    background-color: rgb(236, 142, 142);
+    color: #fff;
+    border-radius: 5px;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .btn__group {
+    select {
+      height: 30px;
+      width: 60px;
+      border-radius: 5px;
+    }
+  }
+  .btn__group__btn-edit,
+  .btn__group__btn-delete {
+    @include btnProperties;
+    height: 30px;
+    width: 50px;
+    background-color: rgb(236, 142, 142);
+    color: #fff;
+    border-radius: 5px;
+  }
+}
+
+@media screen and (max-width: 1124px) {
+  .container__trello {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 2%;
+    background-color: rgb(230, 255, 255);
+  }
+  section {
+    height: 410px;
+    width: 25%;
+    margin: 0 20px;
+    background-color: rgb(243, 236, 236);
+    border-radius: 20px;
+    .todo__wrapper,
+    .in-progress__wrapper,
+    .done__wrapper {
+      @include flex-between;
+      height: 60px;
+      width: 100%;
+      border-radius: 20px 20px 0 0;
+      padding: 5%;
+      p {
+        font-size: 1.5rem;
+        color: #fff;
+      }
+    }
+  }
+  .todo__wrapper {
+    background-color: $bgColorTodo;
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+  .in-progress__wrapper {
+    background-color: $bgColorInProgress;
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+  .done__wrapper {
+    background-color: $bgColorDone;
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+  .todo__ul,
+  .in-progress__ul,
+  .done__ul {
+    height: 280px;
+    .todo__ul__li,
+    .in-progress__ul__li,
+    .done__ul__li {
+      height: 260px;
+      width: 100%;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding: 10px;
+      margin: 5px;
+      /* margin: 10px auto; */
+      .todo__ul__li p,
+      .in-progress__ul__li p,
+      .done__ul__li p {
+        width: 100%;
+        overflow: auto;
+        margin: 5px;
+      }
+    }
+  }
+  .todo__btn-add,
+  .done__btn-delete {
+    height: 40px;
+    width: 60%;
+  }
+  .btn__group {
+    display: flex;
+    flex-wrap: wrap;
+    // align-items: center;
+    select {
+      margin: 5px;
+      width: 100%;
+    }
+  }
+  .btn__group__btn-edit,
+  .btn__group__btn-delete {
+    @include btnProperties;
+    height: 30px;
+    width: 100%;
+    background-color: rgb(236, 142, 142);
+    color: #fff;
+    border-radius: 5px;
+    margin: 5px;
+  }
+  .wrapper {
+    flex-wrap: wrap;
+    p {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 740px) {
+  section {
+    width: 50%;
+    .todo__wrapper,
+    .in-progress__wrapper,
+    .done__wrapper {
+      width: 100%;
+    }
+  }
+  .todo__wrapper {
+    background-color: $bgColorTodo;
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+  .in-progress__wrapper {
+    background-color: $bgColorInProgress;
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+  .done__wrapper {
+    background-color: $bgColorDone;
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+  .todo__ul,
+  .in-progress__ul,
+  .done__ul {
+    height: 280px;
+    .todo__ul__li,
+    .in-progress__ul__li,
+    .done__ul__li {
+      height: 260px;
+      width: 100%;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding: 10px;
+      margin: 5px;
+      /* margin: 10px auto; */
+      .todo__ul__li p,
+      .in-progress__ul__li p,
+      .done__ul__li p {
+        width: 100%;
+        overflow: auto;
+        margin: 5px;
+      }
+    }
+  }
+  .todo__btn-add,
+  .done__btn-delete {
+    height: 40px;
+    width: 60%;
+  }
+  .btn__group {
+    display: flex;
+    flex-wrap: wrap;
+    // align-items: center;
+    select {
+      margin: 5px;
+      width: 100%;
+    }
+  }
+  .btn__group__btn-edit,
+  .btn__group__btn-delete {
+    @include btnProperties;
+    height: 30px;
+    width: 100%;
+    background-color: rgb(236, 142, 142);
+    color: #fff;
+    border-radius: 5px;
+    margin: 5px;
+  }
+  .wrapper {
+    flex-wrap: wrap;
+    p {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container__trello {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 3%;
+    gap: 5%;
+    background-color: rgb(230, 255, 255);
+    header {
+      @include flex;
+      flex-wrap: wrap;
+      height: 150px;
+      width: 100%;
+      background-color: rgb(225, 198, 251);
+      border-radius: 20px;
+      padding: 5%;
+
+      time {
+        @include flex;
+        height: 80px;
+        width: 250px;
+        font-size: 1.5rem;
+        background-color: #fff;
+        border-radius: 10px;
+      }
+    }
+  }
+  section {
+    width: 100%;
+    .todo__wrapper,
+    .in-progress__wrapper,
+    .done__wrapper {
+      width: 100%;
+    }
+  }
+  .todo__wrapper {
+    background-color: $bgColorTodo;
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+  .in-progress__wrapper {
+    background-color: $bgColorInProgress;
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+  .done__wrapper {
+    background-color: $bgColorDone;
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+  .todo__ul,
+  .in-progress__ul,
+  .done__ul {
+    height: 280px;
+    .todo__ul__li,
+    .in-progress__ul__li,
+    .done__ul__li {
+      height: 260px;
+      width: 100%;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding: 10px;
+      margin: 5px;
+      /* margin: 10px auto; */
+      .todo__ul__li p,
+      .in-progress__ul__li p,
+      .done__ul__li p {
+        width: 100%;
+        overflow: auto;
+        margin: 5px;
+      }
+    }
+  }
+  .todo__btn-add,
+  .done__btn-delete {
+    height: 40px;
+    width: 60%;
+  }
+  .btn__group {
+    display: flex;
+    flex-wrap: wrap;
+    // align-items: center;
+    select {
+      margin: 5px;
+      width: 100%;
+    }
+  }
+  .btn__group__btn-edit,
+  .btn__group__btn-delete {
+    @include btnProperties;
+    height: 30px;
+    width: 100%;
+    background-color: rgb(236, 142, 142);
+    color: #fff;
+    border-radius: 5px;
+    margin: 5px;
+  }
+  .wrapper {
+    flex-wrap: wrap;
+    p {
+      width: 100%;
+    }
+  }
 }
