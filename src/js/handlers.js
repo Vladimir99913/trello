@@ -1,6 +1,5 @@
 import { todos } from './localStorage.js';
 import { getCount, countProgress } from './counterTodo.js';
-import { date } from './clock.js';
 import { setData } from './localStorage.js';
 import { render } from './render.js';
 import { Todo } from './main.js';

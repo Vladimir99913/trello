@@ -4,9 +4,7 @@ import { getTime, date } from './clock.js';
 import { getUser } from './users.js';
 import { getCount } from './counterTodo.js';
 import {
-  ulTodoElement,
-  ulProgressElement,
-  ulDoneElement,
+  ulContainerElements,
   selectUserElement,
   selectEditUserElement,
   formElementAdd,
@@ -17,6 +15,8 @@ import {
   btnDeleteAllElement,
 } from './dom.js';
 import { handleClickBtnSave, handleChangeSelectStatus, handleClickBtnDelete, handleClickBtnDeleteAllDone } from './handlers.js';
+
+const [ulTodo, ulInProgress, ulDone] = ulContainerElements;
 
 function buildTemplateTodo(todo) {
   let className = '';
@@ -76,9 +76,9 @@ sectionTodoElement.addEventListener('change', handleChangeSelectStatus);
 sectionProgressElement.addEventListener('change', handleChangeSelectStatus);
 sectionDoneElement.addEventListener('change', handleChangeSelectStatus);
 
-ulTodoElement.addEventListener('click', handleClickBtnDelete);
-ulProgressElement.addEventListener('click', handleClickBtnDelete);
-ulDoneElement.addEventListener('click', handleClickBtnDelete);
+ulTodo.addEventListener('click', handleClickBtnDelete);
+ulInProgress.addEventListener('click', handleClickBtnDelete);
+ulDone.addEventListener('click', handleClickBtnDelete);
 
 sectionTodoElement.addEventListener('change', getCount);
 sectionProgressElement.addEventListener('change', getCount);

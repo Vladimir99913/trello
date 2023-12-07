@@ -1,7 +1,10 @@
 // import { todos } from './handlers.js';
 import { todos } from './localStorage.js';
 import { buildTemplateTodo } from './main.js';
-import { ulTodoElement, ulProgressElement, ulDoneElement } from './dom.js';
+import { ulContainerElements } from './dom.js';
+
+const [ulTodo, ulInProgress, ulDone] = ulContainerElements;
+
 function render() {
   let htmlTodo = '';
   let htmlProgress = '';
@@ -21,9 +24,9 @@ function render() {
     }
   });
 
-  ulTodoElement.innerHTML = htmlTodo;
-  ulProgressElement.innerHTML = htmlProgress;
-  ulDoneElement.innerHTML = htmlDone;
+  ulTodo.innerHTML = htmlTodo;
+  ulInProgress.innerHTML = htmlProgress;
+  ulDone.innerHTML = htmlDone;
 }
 
 export { render };

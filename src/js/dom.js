@@ -15,9 +15,13 @@ const btnEditTodoElement = $('.btn__group__btn-edit');
 const btnDeleteTodoElement = $('.btn__group__btn-delete');
 const selectStatusElement = $('.btn__group__status');
 const btnSaveElement = $('.btn btn-primary');
-const ulTodoElement = $('.todo__ul');
-const ulProgressElement = $('.in-progress__ul');
-const ulDoneElement = $('.done__ul');
+
+// const ulTodoElement = $('.todo__ul');
+// const ulProgressElement = $('.in-progress__ul');
+// const ulDoneElement = $('.done__ul');
+
+const ulContainerElements = $$('ul');
+
 const inputTitleElement = $('input[name="title"]');
 const textareaDescriptionElement = $('textarea[name="description"]');
 const selectUserElement = $('select[name="user"]');
@@ -50,9 +54,7 @@ export {
   btnDeleteTodoElement,
   selectStatusElement,
   btnSaveElement,
-  ulTodoElement,
-  ulProgressElement,
-  ulDoneElement,
+  ulContainerElements,
   inputTitleElement,
   textareaDescriptionElement,
   selectUserElement,
