@@ -3,6 +3,7 @@ import { getCount, countProgress } from './counterTodo.js';
 import { date } from './clock.js';
 import { setData } from './localStorage.js';
 import { render } from './render.js';
+import { Todo } from './main.js';
 import {
   btnAddTodoElement,
   btnEditTodoElement,
@@ -32,45 +33,18 @@ import {
 } from './dom.js';
 let todoEditId = 0;
 
-// todos = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [];
-
 function handleClickBtnSave(event) {
-  //   event.preventDefault();
-  //   const todo = {
-  //     id: Date.now(),
-  //     title: inputTitleElement.value,
-  //     description: textareaDescriptionElement.value,
-  //     user: selectUserElement.value,
-  //     createdAt: date.toLocaleTimeString(),
-  //     status: 'Todo',
-  //   };
-  //   todos.push(todo);
-  //   render();
-  //   textareaDescriptionElement.value = '';
-  //   inputTitleElement.value = '';
-  //   selectUserElement.value = 'Select user';
-  //   setData();
-  // }
-
   event.preventDefault();
-  const todo = {};
   const formData = new FormData(formElementAdd);
-  formData.append('createdAt', date.toLocaleTimeString());
-  formData.append('status', 'Todo');
-  formData.append('id', Date.now());
-
-  for (let [key, value] of formData.entries()) {
-    todo[key] = value;
-  }
-  console.log(formData);
+  const todo = new Todo(formData);
   console.log(todo);
-  console.log(textareaDescriptionElement.value);
   todos.push(todo);
   render();
   getCount();
   textareaDescriptionElement.value = '';
   inputTitleElement.value = '';
   selectUserElement.value = '';
+  inputColorElement.value = '#e2d2f9';
   console.log(inputColorElement.value);
   setData();
 }

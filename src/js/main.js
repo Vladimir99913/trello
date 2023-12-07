@@ -1,6 +1,6 @@
 // import * as bootstrap from 'bootstrap';
 
-import { getTime } from './clock.js';
+import { getTime, date } from './clock.js';
 import { getUser } from './users.js';
 import { getCount } from './counterTodo.js';
 import {
@@ -52,6 +52,19 @@ function buildTemplateTodo(todo) {
 </li>
   `;
 }
+
+class Todo {
+  id = Date.now();
+  createdAt = date.toLocaleTimeString();
+  status = 'Todo';
+  constructor(formData) {
+    this.title = formData.get('title');
+    this.description = formData.get('description');
+    this.user = formData.get('user');
+    this.bgColor = formData.get('bgColor');
+  }
+}
+
 const timer = setInterval(getTime, 1000);
 
 getUser(selectUserElement);
@@ -73,4 +86,4 @@ sectionDoneElement.addEventListener('change', getCount);
 
 btnDeleteAllElement.addEventListener('click', handleClickBtnDeleteAllDone);
 
-export { buildTemplateTodo };
+export { buildTemplateTodo, Todo };
