@@ -1,5 +1,4 @@
 // import * as bootstrap from 'bootstrap';
-
 import { getTime, date } from './clock.js';
 import { getUser } from './users.js';
 import { getCount } from './counterTodo.js';
@@ -14,7 +13,7 @@ import {
   btnDeleteAllDoneElement,
   btnDeleteAllElement,
 } from './dom.js';
-import { handleClickBtnSave, handleChangeSelectStatus, handleClickBtnDelete, handleClickBtnDeleteAllDone } from './handlers.js';
+import { handleClickBtnSave, handleChangeSelectStatus, handleClickBtnDelete, handleClickBtnDeleteAllDone, handleMouseDownTodo, DragOver, DragDrop } from './handlers.js';
 
 const [ulTodo, ulInProgress, ulDone] = ulContainerElements;
 
@@ -85,5 +84,12 @@ sectionProgressElement.addEventListener('change', getCount);
 sectionDoneElement.addEventListener('change', getCount);
 
 btnDeleteAllElement.addEventListener('click', handleClickBtnDeleteAllDone);
+
+ulTodo.addEventListener('mousedown', handleMouseDownTodo);
+ulInProgress.addEventListener('mousedown', handleMouseDownTodo);
+ulDone.addEventListener('mousedown', handleMouseDownTodo);
+
+DragOver();
+DragDrop();
 
 export { buildTemplateTodo, Todo };

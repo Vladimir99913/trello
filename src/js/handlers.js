@@ -29,6 +29,7 @@ import {
   formElementAdd,
   formElementEdit,
   modalInstance,
+  ulContainerElements,
 } from './dom.js';
 let todoEditId = 0;
 
@@ -135,4 +136,66 @@ function handleClickBtnDeleteAllDone() {
   setData();
 }
 
-export { handleClickBtnSave, handleChangeSelectStatus, handleClickBtnDelete, handleClickBtnDeleteAllDone };
+function handleMouseDownTodo(event) {
+  if (event.target.tagName === 'LI') {
+    const liElementDrag = event.target.closest('li');
+    liElementDrag.draggable = true;
+    liElementDrag.addEventListener('dragstart', onDragStart);
+    liElementDrag.addEventListener('dragend', onDragEnd);
+  }
+}
+
+function onDragEnd(event) {
+  event.target.classList.remove('drag');
+}
+
+function onDragStart(event) {
+  event.dataTransfer.setData('text', event.target.id);
+  console.log(event.target.id);
+  event.target.classList.add('drag');
+  console.log('start');
+}
+
+function DragOver() {
+  ulContainerElements.forEach((container) => {
+    container.addEventListener('dragover', (event) => {
+      event.preventDefault();
+    });
+  });
+}
+
+function DragDrop() {
+  ulContainerElements.forEach((container) => {
+    container.addEventListener('drop', (event) => {
+      event.preventDefault();
+      const liElementID = event.dataTransfer.getData('text');
+      todos.forEach((todo) => {
+        if (todo.id == liElementID) {
+          if (container.classList.contains('todo__ul')) {
+            todo.status = 'Todo';
+          }
+          console.log();
+          if (container.classList.contains('in-progress__ul')) {
+            todo.status = 'Progress';
+            console.log(todo);
+          }
+          if (container.classList.contains('done__ul')) {
+            todo.status = 'Done';
+            console.log(todo);
+          }
+        }
+      });
+
+      console.log(container.classList.contains('done__ul'));
+
+      console.log(event.target);
+      // console.log(textareaID.classList.contains('done__ul'));
+      // e.target.appendChild(document.getElementById(liElementID));
+      render();
+      setData();
+      getCount();
+    });
+  });
+}
+
+export { handleClickBtnSave, handleChangeSelectStatus, handleClickBtnDelete, handleClickBtnDeleteAllDone, handleMouseDownTodo, DragOver, DragDrop };
