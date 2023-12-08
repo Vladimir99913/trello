@@ -1,4 +1,3 @@
-// import { todos } from './handlers.js';
 import { todos } from './localStorage.js';
 import { buildTemplateTodo } from './main.js';
 import { ulContainerElements } from './dom.js';
@@ -10,7 +9,6 @@ function render() {
   let htmlProgress = '';
   let htmlDone = '';
   const cloneTodos = structuredClone(todos);
-  // cloneTodos.reverse();
   cloneTodos.forEach((todo) => {
     if (todo.status == 'Todo') {
       const templateTodo = buildTemplateTodo(todo);

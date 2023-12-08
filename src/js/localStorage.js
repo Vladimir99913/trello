@@ -1,5 +1,4 @@
 import { render } from './render.js';
-// import { todos } from './handlers.js';
 import { getCount } from './counterTodo.js';
 
 let todos = getData();

@@ -8,20 +8,11 @@ function $$(selector) {
   return [...document.querySelectorAll(selector)];
 }
 
-const btnAddTodoElement = $('.todo__btn-add');
-const btnDeleteAllDoneElement = $('.done__btn-delete');
-const btnDeleteAllElement = $('#btnDeleteAll');
-const btnEditTodoElement = $('.btn__group__btn-edit');
-const btnDeleteTodoElement = $('.btn__group__btn-delete');
+const sectionTodoElement = $('.todo');
+const sectionProgressElement = $('.in-progress');
+const sectionDoneElement = $('.done');
+const btnDeleteAllDoneElement = $('#btnDeleteAll');
 const selectStatusElement = $('.btn__group__status');
-const btnSaveElement = $('.btn btn-primary');
-
-// const ulTodoElement = $('.todo__ul');
-// const ulProgressElement = $('.in-progress__ul');
-// const ulDoneElement = $('.done__ul');
-
-const ulContainerElements = $$('ul');
-
 const inputTitleElement = $('input[name="title"]');
 const textareaDescriptionElement = $('textarea[name="description"]');
 const selectUserElement = $('select[name="user"]');
@@ -30,30 +21,17 @@ const inputEditTitleElement = $('input[name="titleEdit"]');
 const textareaEditDescriptionElement = $('textarea[name="descriptionEdit"]');
 const selectEditUserElement = $('select[name="userEdit"]');
 const inputEditColorElement = $('input[name="bgColorEdit"]');
-
+const ulContainerElements = $$('ul');
 const counterElements = $$('p');
-
-const sectionTodoElement = $('.todo');
-const sectionProgressElement = $('.in-progress');
-const sectionDoneElement = $('.done');
-
-const containerTrelloElement = $('.container__trello');
 const timeElement = $('time');
-
 const formElementAdd = $('#formAdd');
 const formElementEdit = $('#formEdit');
-
-const modalWarningElement = $('#exampleModal-4');
-const modalInstance = new Modal(modalWarningElement);
+const modalErrorElement = $('#ErrorModal');
+const modalError = new Modal(modalErrorElement);
 
 export {
-  btnAddTodoElement,
   btnDeleteAllDoneElement,
-  btnDeleteAllElement,
-  btnEditTodoElement,
-  btnDeleteTodoElement,
   selectStatusElement,
-  btnSaveElement,
   ulContainerElements,
   inputTitleElement,
   textareaDescriptionElement,
@@ -67,9 +45,8 @@ export {
   sectionTodoElement,
   sectionProgressElement,
   sectionDoneElement,
-  containerTrelloElement,
   timeElement,
   formElementAdd,
   formElementEdit,
-  modalInstance,
+  modalError,
 };

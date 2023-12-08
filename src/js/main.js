@@ -1,4 +1,3 @@
-// import * as bootstrap from 'bootstrap';
 import { getTime, date } from './clock.js';
 import { getUser } from './users.js';
 import { getCount } from './counterTodo.js';
@@ -11,9 +10,19 @@ import {
   sectionProgressElement,
   sectionDoneElement,
   btnDeleteAllDoneElement,
-  btnDeleteAllElement,
+  formElementEdit,
 } from './dom.js';
-import { handleClickBtnSave, handleChangeSelectStatus, handleClickBtnDelete, handleClickBtnDeleteAllDone, handleMouseDownTodo, DragOver, DragDrop } from './handlers.js';
+import {
+  handleClickBtnSave,
+  handleClickBtnSaveEdit,
+  handleChangeSelectStatus,
+  handleClickBtnDelete,
+  handleClickBtnEdit,
+  handleClickBtnDeleteAllDone,
+  handleMouseDownTodo,
+  DragOver,
+  DragDrop,
+} from './handlers.js';
 
 const [ulTodo, ulInProgress, ulDone] = ulContainerElements;
 
@@ -25,10 +34,8 @@ function buildTemplateTodo(todo) {
     liElementColor = todo.bgColor;
   } else if (todo.status == 'Progress') {
     className = 'in-progress__ul__li';
-    // liElementColor = 'rgb(167, 167, 167)';
   } else if (todo.status == 'Done') {
     className = 'done__ul__li';
-    // liElementColor = 'rgb(115, 180, 226)';
   }
   return `
   <li id="${todo.id}" class="${className}" style="background-color:${liElementColor};">
@@ -39,7 +46,7 @@ function buildTemplateTodo(todo) {
     <time>${todo.createdAt}</time>
   </div>
   <div class="btn__group">
-    <button class="btn__group__btn-edit" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal-2">Edit</button>
+    <button class="btn__group__btn-edit" type="button" data-bs-toggle="modal" data-bs-target="#TodoEditModal">Edit</button>
     <button class="btn__group__btn-delete">Delete</button>
     <select class="btn__group__status" >
       <option>Open</option>
@@ -70,20 +77,25 @@ getUser(selectUserElement);
 getUser(selectEditUserElement);
 
 formElementAdd.addEventListener('submit', handleClickBtnSave);
+formElementEdit.addEventListener('submit', handleClickBtnSaveEdit);
 
 sectionTodoElement.addEventListener('change', handleChangeSelectStatus);
 sectionProgressElement.addEventListener('change', handleChangeSelectStatus);
 sectionDoneElement.addEventListener('change', handleChangeSelectStatus);
 
+ulTodo.addEventListener('click', handleClickBtnEdit);
+ulInProgress.addEventListener('click', handleClickBtnEdit);
+ulDone.addEventListener('click', handleClickBtnEdit);
+
 ulTodo.addEventListener('click', handleClickBtnDelete);
 ulInProgress.addEventListener('click', handleClickBtnDelete);
 ulDone.addEventListener('click', handleClickBtnDelete);
 
-sectionTodoElement.addEventListener('change', getCount);
-sectionProgressElement.addEventListener('change', getCount);
-sectionDoneElement.addEventListener('change', getCount);
+// sectionTodoElement.addEventListener('change', getCount);
+// sectionProgressElement.addEventListener('change', getCount);
+// sectionDoneElement.addEventListener('change', getCount);
 
-btnDeleteAllElement.addEventListener('click', handleClickBtnDeleteAllDone);
+btnDeleteAllDoneElement.addEventListener('click', handleClickBtnDeleteAllDone);
 
 ulTodo.addEventListener('mousedown', handleMouseDownTodo);
 ulInProgress.addEventListener('mousedown', handleMouseDownTodo);

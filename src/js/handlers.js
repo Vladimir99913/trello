@@ -4,14 +4,6 @@ import { setData } from './localStorage.js';
 import { render } from './render.js';
 import { Todo } from './main.js';
 import {
-  btnAddTodoElement,
-  btnEditTodoElement,
-  btnDeleteTodoElement,
-  selectStatusElement,
-  btnSaveElement,
-  ulTodoElement,
-  ulProgressElement,
-  ulDoneElement,
   inputTitleElement,
   textareaDescriptionElement,
   selectUserElement,
@@ -20,15 +12,8 @@ import {
   textareaEditDescriptionElement,
   selectEditUserElement,
   inputEditColorElement,
-  counterElements,
-  sectionTodoElement,
-  sectionProgressElement,
-  sectionDoneElement,
-  containerTrelloElement,
-  timeElement,
   formElementAdd,
-  formElementEdit,
-  modalInstance,
+  modalError,
   ulContainerElements,
 } from './dom.js';
 let todoEditId = 0;
@@ -37,65 +22,61 @@ function handleClickBtnSave(event) {
   event.preventDefault();
   const formData = new FormData(formElementAdd);
   const todo = new Todo(formData);
-  console.log(todo);
   todos.push(todo);
   render();
   getCount();
+  setData();
   textareaDescriptionElement.value = '';
   inputTitleElement.value = '';
   selectUserElement.value = '';
   inputColorElement.value = '#e2d2f9';
-  console.log(inputColorElement.value);
-  setData();
 }
 
 function handleChangeSelectStatus(event) {
-  // const selectStatusElement = $('.btn__group__status');
   if (event.target.tagName === 'SELECT') {
     const liElement = event.target.closest('li');
-    console.log(liElement.getAttribute('id'));
-    console.log(event.target.value);
-    const selectElement = event.target;
     if (event.target.value == 'Progress' && countProgress == 6) {
-      modalInstance.show();
+      modalError.show();
     } else {
       todos.forEach((todo) => {
         if (todo.id == liElement.getAttribute('id')) {
           todo.status = event.target.value;
-          // console.log(selectStatusElement.value);
         }
       });
     }
   }
   render();
   setData();
+  getCount();
 }
 
 function handleClickBtnDelete(event) {
-  // const btnDeleteTodoElement = $('.btn__group__btn-delete');
   if (event.target.tagName === 'BUTTON') {
     const btn = event.target;
     if (btn.classList.contains('btn__group__btn-delete')) {
       const liElementDelete = event.target.closest('li');
       const liElementDeleteId = liElementDelete.getAttribute('id');
-      console.log(liElementDeleteId);
-      console.log(todos);
       todos.forEach((todo, index) => {
         if (todo.id == liElementDeleteId) {
           todos.splice(index, 1);
-          console.log('delete');
         }
       });
-    } else if (btn.classList.contains('btn__group__btn-edit')) {
-      const liElementEdit = event.target.closest('li');
-      console.log(liElementEdit);
+    }
+    render();
+    setData();
+    getCount();
+  }
+}
 
+function handleClickBtnEdit(event) {
+  if (event.target.tagName === 'BUTTON') {
+    const btn = event.target;
+    if (btn.classList.contains('btn__group__btn-edit')) {
+      const liElementEdit = event.target.closest('li');
       const liElementEditId = liElementEdit.getAttribute('id');
-      console.log(liElementEditId);
       let todoList = todos.find((todo) => {
         return todo.id == liElementEditId;
       });
-      console.log(todoList.bgColor);
       todoEditId = liElementEditId;
       inputEditTitleElement.value = todoList.title;
       textareaEditDescriptionElement.value = todoList.description;
@@ -108,7 +89,7 @@ function handleClickBtnDelete(event) {
   }
 }
 
-formElementEdit.addEventListener('submit', (event) => {
+function handleClickBtnSaveEdit(event) {
   event.preventDefault();
   todos.forEach((todo) => {
     if (todo.id == todoEditId) {
@@ -116,20 +97,17 @@ formElementEdit.addEventListener('submit', (event) => {
       todo.description = textareaEditDescriptionElement.value;
       todo.user = selectEditUserElement.value;
       todo.bgColor = inputEditColorElement.value;
-      // console.log(inputEditColorElement.value);
     }
   });
-  console.log(todos);
   render();
-});
+  setData();
+}
 
 function handleClickBtnDeleteAllDone() {
   let firstIndex = todos.findIndex((todo) => todo.status == 'Done');
-  console.log(todos);
   while (firstIndex != -1) {
     todos.splice(firstIndex, 1);
     firstIndex = todos.findIndex((todo) => todo.status == 'Done');
-    console.log(firstIndex);
   }
   getCount();
   render();
@@ -153,7 +131,6 @@ function onDragStart(event) {
   event.dataTransfer.setData('text', event.target.id);
   console.log(event.target.id);
   event.target.classList.add('drag');
-  console.log('start');
 }
 
 function DragOver() {
@@ -176,21 +153,17 @@ function DragDrop() {
           }
           console.log();
           if (container.classList.contains('in-progress__ul')) {
-            todo.status = 'Progress';
-            console.log(todo);
+            if (countProgress == 6) {
+              modalInstance.show();
+            } else {
+              todo.status = 'Progress';
+            }
           }
           if (container.classList.contains('done__ul')) {
             todo.status = 'Done';
-            console.log(todo);
           }
         }
       });
-
-      console.log(container.classList.contains('done__ul'));
-
-      console.log(event.target);
-      // console.log(textareaID.classList.contains('done__ul'));
-      // e.target.appendChild(document.getElementById(liElementID));
       render();
       setData();
       getCount();
@@ -198,4 +171,4 @@ function DragDrop() {
   });
 }
 
-export { handleClickBtnSave, handleChangeSelectStatus, handleClickBtnDelete, handleClickBtnDeleteAllDone, handleMouseDownTodo, DragOver, DragDrop };
+export { handleClickBtnSave, handleClickBtnSaveEdit, handleChangeSelectStatus, handleClickBtnDelete, handleClickBtnEdit, handleClickBtnDeleteAllDone, handleMouseDownTodo, DragOver, DragDrop };

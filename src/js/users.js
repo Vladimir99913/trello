@@ -7,6 +7,5 @@ async function getUser(select) {
     optionAddElement.innerHTML = element.name;
     select.append(optionAddElement);
   });
-  // console.log(user);
 }
 export { getUser };

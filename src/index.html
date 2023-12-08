@@ -6,13 +6,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="./scss/app.scss" />
     <script src="./js/app.js" type="module"></script>
-    <!-- <script src="../src/js/dom.js" type="module"></script>
-    <script src="./js/handlers.js" type="module"></script>
-    <script src="./js/render.js" type="module"></script>
-    <script src="./js/localStorage.js" type="module"></script>
-    <script src="./js/counterTodo.js" type="module"></script>
-    <script src="../src/js/users.js" type="module"></script>
-    <script src="../src/js/clock.js" type="module"></script> -->
   </head>
   <body>
     <div class="container__trello">
@@ -26,7 +19,7 @@
           <p>0</p>
         </div>
         <ul class="todo__ul"></ul>
-        <button class="todo__btn-add" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Add todo</button>
+        <button class="todo__btn-add" type="button" data-bs-toggle="modal" data-bs-target="#TodoAddModal">Add todo</button>
       </section>
       <section class="in-progress">
         <div class="in-progress__wrapper">
@@ -41,14 +34,14 @@
           <p>0</p>
         </div>
         <ul class="done__ul"></ul>
-        <button type="button" class="done__btn-delete" data-bs-toggle="modal" data-bs-target="#exampleModal-3">Delete all</button>
+        <button type="button" class="done__btn-delete" data-bs-toggle="modal" data-bs-target="#WarningModal">Delete all</button>
       </section>
     </div>
 
     <!-- Modal -->
 
     <!-- 1 -->
-    <div class="modal fade" id="exampleModal" tabindex="-1">
+    <div class="modal fade" id="TodoAddModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -64,7 +57,6 @@
                 <textarea class="form-control" placeholder="Description" rows="2" id="validationTextarea" name="description" required></textarea>
               </div>
               <div class="mb-3">
-                <!-- <div class="col-md-3"> -->
                 <select class="form-select form-select-sm" id="validationDefault02" name="user" required>
                   <option selected disabled value="">Select user</option>
                 </select>
@@ -74,8 +66,8 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Save</button>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-success">Save</button>
             </div>
           </form>
         </div>
@@ -83,7 +75,7 @@
     </div>
 
     <!-- 2 -->
-    <div class="modal fade" id="exampleModal-2" tabindex="-1">
+    <div class="modal fade" id="TodoEditModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -99,7 +91,6 @@
                 <textarea class="form-control" placeholder="Description" rows="2" id="validationTextarea" name="descriptionEdit" required></textarea>
               </div>
               <div class="mb-3">
-                <!-- <div class="col-md-3"> -->
                 <select class="form-select form-select-sm" aria-label="Small select example" id="validationDefault06" name="userEdit" required>
                   <option selected disabled value="">Select user</option>
                 </select>
@@ -119,19 +110,19 @@
 
     <!-- 3 -->
 
-    <div class="modal fade" id="exampleModal-3" tabindex="-1">
+    <div class="modal fade" id="WarningModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Удалить все</h5>
+            <h5 class="modal-title">Warning</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p>Вы уверены, что хотите очистить поле выполненных дел?</p>
+            <p>Are you sure you want to clear the completed tasks field?</p>
           </div>
           <div class="modal-footer d-flex justify-content-center">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Нет</button>
-            <button type="button" class="btn btn-primary" id="btnDeleteAll" data-bs-dismiss="modal">Да</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" id="btnDeleteAll" data-bs-dismiss="modal">Yes</button>
           </div>
         </div>
       </div>
@@ -139,18 +130,18 @@
 
     <!-- 4 -->
 
-    <div class="modal fade" id="exampleModal-4" tabindex="-1">
+    <div class="modal fade" id="ErrorModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Ошибка</h5>
+            <h5 class="modal-title">Error</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p>Выполните остальные дела прежде чем добавлять следующие</p>
+            <p>Complete the other tasks before adding the next one</p>
           </div>
           <div class="modal-footer d-flex justify-content-center">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Окей</button>
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Okay</button>
           </div>
         </div>
       </div>
