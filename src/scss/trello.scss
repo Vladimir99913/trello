@@ -4,7 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding: 3%;
+  padding: 40px;
   gap: 5%;
   background-color: rgb(230, 255, 255);
   header {
@@ -31,6 +31,7 @@ section {
   margin: 0 20px;
   background-color: rgb(243, 236, 236);
   border-radius: 20px;
+
   .todo__wrapper,
   .in-progress__wrapper,
   .done__wrapper {
@@ -46,7 +47,6 @@ section {
     }
   }
 }
-
 .todo__wrapper {
   background-color: $bgColorTodo;
   h3 {
@@ -65,7 +65,6 @@ section {
     text-transform: uppercase;
   }
 }
-
 .todo__ul,
 .in-progress__ul,
 .done__ul {
@@ -101,6 +100,12 @@ section {
 }
 .done__ul__li {
   background-color: $bgColorDone;
+  h6 {
+    text-decoration: line-through;
+  }
+  p:nth-child(2) {
+    text-decoration: line-through;
+  }
 }
 .todo__btn-add,
 .done__btn-delete {
@@ -206,8 +211,12 @@ textarea {
 }
 
 @media screen and (max-width: 840px) {
+  .container__trello {
+    height: auto;
+  }
   section {
     width: 50%;
+    margin: 20px 20px 0;
     .todo__wrapper,
     .in-progress__wrapper,
     .done__wrapper {

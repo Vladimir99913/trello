@@ -1,6 +1,5 @@
 import { getTime, date } from './clock.js';
 import { getUser } from './users.js';
-import { getCount } from './counterTodo.js';
 import {
   ulContainerElements,
   selectUserElement,
@@ -61,7 +60,7 @@ function buildTemplateTodo(todo) {
 
 class Todo {
   id = Date.now();
-  createdAt = date.toLocaleTimeString();
+  createdAt = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   status = 'Todo';
   constructor(formData) {
     this.title = formData.get('title');
@@ -72,7 +71,6 @@ class Todo {
 }
 
 const timer = setInterval(getTime, 1000);
-
 getUser(selectUserElement);
 getUser(selectEditUserElement);
 
@@ -86,21 +84,15 @@ sectionDoneElement.addEventListener('change', handleChangeSelectStatus);
 ulTodo.addEventListener('click', handleClickBtnEdit);
 ulInProgress.addEventListener('click', handleClickBtnEdit);
 ulDone.addEventListener('click', handleClickBtnEdit);
-
 ulTodo.addEventListener('click', handleClickBtnDelete);
 ulInProgress.addEventListener('click', handleClickBtnDelete);
 ulDone.addEventListener('click', handleClickBtnDelete);
-
-// sectionTodoElement.addEventListener('change', getCount);
-// sectionProgressElement.addEventListener('change', getCount);
-// sectionDoneElement.addEventListener('change', getCount);
 
 btnDeleteAllDoneElement.addEventListener('click', handleClickBtnDeleteAllDone);
 
 ulTodo.addEventListener('mousedown', handleMouseDownTodo);
 ulInProgress.addEventListener('mousedown', handleMouseDownTodo);
 ulDone.addEventListener('mousedown', handleMouseDownTodo);
-
 DragOver();
 DragDrop();
 

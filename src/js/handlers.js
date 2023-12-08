@@ -129,7 +129,6 @@ function onDragEnd(event) {
 
 function onDragStart(event) {
   event.dataTransfer.setData('text', event.target.id);
-  console.log(event.target.id);
   event.target.classList.add('drag');
 }
 
@@ -154,7 +153,7 @@ function DragDrop() {
           console.log();
           if (container.classList.contains('in-progress__ul')) {
             if (countProgress == 6) {
-              modalInstance.show();
+              modalError.show();
             } else {
               todo.status = 'Progress';
             }

@@ -1,5 +1,4 @@
 import * as bootstrap from 'bootstrap';
-
 import * as localStorage from './localStorage';
 import * as clock from './clock';
 import * as counterTodo from './counterTodo';
