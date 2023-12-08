@@ -86,12 +86,11 @@ section {
     justify-content: space-evenly;
     padding: 10px;
     margin: 5px;
-    .todo__ul__li p,
-    .in-progress__ul__li p,
-    .done__ul__li p {
-      width: 100%;
+    p:nth-child(2),
+    p:nth-child(2),
+    p:nth-child(2) {
       overflow: auto;
-      margin: 5px;
+      margin-bottom: 0px;
     }
   }
 }
@@ -100,6 +99,7 @@ section {
 }
 .done__ul__li {
   background-color: $bgColorDone;
+  opacity: 0.6;
   h6 {
     text-decoration: line-through;
   }
