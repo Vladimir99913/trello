@@ -94,14 +94,26 @@ section {
     }
   }
 }
+.todo__ul__li {
+  h6 {
+    height: 20px;
+    overflow: auto;
+  }
+}
 .in-progress__ul__li {
   background-color: $bgColorInProgress;
+  h6 {
+    height: 20px;
+    overflow: auto;
+  }
 }
 .done__ul__li {
   background-color: $bgColorDone;
   opacity: 0.6;
   h6 {
+    height: 20px;
     text-decoration: line-through;
+    overflow: auto;
   }
   p:nth-child(2) {
     text-decoration: line-through;
